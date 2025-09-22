@@ -28,8 +28,16 @@ final class RegisterController extends AbstractController
       // tu envoies un message de confirmation du compte bien crée
 
       if ($form->isSubmitted() && $form->isValid()) {
+
             $entityManager->persist($user);
             $entityManager->flush();
+
+            $this->addFlash(
+                'success',
+                'Votre compte est crée, veuillez vous connecter'
+            );
+
+            return $this->redirectToRoute('app_login');
       }
 
 
