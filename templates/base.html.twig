@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>La Boutique Française - 100% Made in France</title>
+    <title>Projet Xun</title>
     <meta name="description" content="La boutique spécialisée dans la fabrication Made In France">
 
     <link rel="stylesheet" href="/assets/css/style.css">
@@ -22,7 +22,7 @@
 <header data-bs-theme="dark">
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{{ path('app_home') }}">La Boutique Française</a>
+            <a class="navbar-brand" href="{{ path('app_home') }}">Projet Xun</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -40,9 +40,16 @@
                 <div class="speed-menu">
                     {% if app.user %}
                         <a href="{{ path('app_account') }}"><i data-feather="user"></i>{{ app.user.firstname }}</a>
+
+                        <a href="{{ path('app_account_wish_list')}}">
+                            <i data-feather="heart"></i>
+                        </a>
                     {% else %}
                         <a href="{{ path('app_login')}}"><i data-feather="user"></i></a>
                     {% endif %}
+
+                    
+
                     <a href="{{ path('app_cart') }}">
                         <i data-feather="shopping-cart"></i>
                         <span class="badge text-bg-light">{{ fullCartQuantity }}</span>

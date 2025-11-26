@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    <div class="container my-5 text-center">
+    <img src="/assets/img/sac-de-courses.png" alt="Commande confirmé">
+        <h1>Merci pour votre commande à bientôt.</h1>
+
+        <a href="{{ path('app_account_order', { 'id_order' : order.id } ) }}" class="btn btn-success"> Consulter ma commande </a></br>
+          {# <pre>
+            {{ dump(order) }}
+          </pre> #}
+                Vous avez payé un total TTC de : <p>{{ order.totalWt|price }}</p></br>
+                Votre commande arrivera à l'adresse suivante : <p>{{ order.delivery|raw }}</p></br>
+                Le transporteur que vous avez choisi : <p>{{ order.carrierName }}</p>
+                
+                Voici les produits que vous avez commendé : 
+                    <div style="display:flex; flex-direction:row;justify-content:center;">
+                        {% for product in order.orderDetails %}
+                                <p style="padding-left:5px">{{ product.productName }}</p>
+                            
+                        {% endfor %}
+                    </div>
+    </div>
+{% endblock %}
